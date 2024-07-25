@@ -1,0 +1,14 @@
+package com.ust.rideservice.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DriverDto {
+    public long id;
+    public String name;
+    public String licensenumber;
+}

@@ -8,6 +8,8 @@ import com.ust.driverservice.model.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DriverService {
 
@@ -55,7 +57,16 @@ public class DriverService {
     public Driver updateDriver(long driverid) {
         Driver driver = driverRepository.findById(driverid).get();
         driver.setDriverstatus("available");
-        driver.setRideid(0);
         return driverRepository.save(driver);
+    }
+
+    public Driver getDriverByRideid(long rideid) {
+        return driverRepository.findByRideid(rideid).orElse(null);
+    }
+
+    public List<Driver> getDriverByStatus(String status) {
+
+        return driverRepository.findByDriverstatus(status);
+
     }
 }

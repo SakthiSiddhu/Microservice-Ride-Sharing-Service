@@ -1,11 +1,9 @@
-package com.ust.rideservice.dto;
+package com.ust.userservice.dto;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +15,6 @@ public class RideResponseDto {
     String source;
     String dest;
     double distance;
-    private DriverDto driverDto;
+    Driver driverDto;
     String status;
 }

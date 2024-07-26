@@ -1,10 +1,14 @@
 package com.ust.userservice.controller;
 
+import com.ust.userservice.dto.Payment;
+import com.ust.userservice.dto.PaymentDto;
+import com.ust.userservice.dto.ResponseDto;
 import com.ust.userservice.model.User;
 import com.ust.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,6 +17,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
 
     @PostMapping("/adduser")
       public User createUser(@RequestBody User user){
@@ -35,6 +40,14 @@ public class UserController {
     public User getUserById(@PathVariable long id){
 
         return userService.getUserById(id);
+    }
+
+    @GetMapping("/response/{userid}")
+    public ResponseDto geFullResponse(@PathVariable long userid){
+
+
+        return userService.getFullResponse(userid);
+
     }
 
 

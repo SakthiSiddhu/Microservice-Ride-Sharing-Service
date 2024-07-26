@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @FeignClient(name ="driver-service",url = "http://localhost:9096/drivers")
 public interface DriverClient {
-    @GetMapping( "/{id}")
+    @GetMapping( "id/{id}")
     public Driver getDriver(@PathVariable long id);
 
     @PutMapping("/status/{driverid}")
